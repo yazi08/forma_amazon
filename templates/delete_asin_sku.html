@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+
+{% block Pet %}
+<h1>Форма Удаления</h1>
+
+<div style="display: flex; align-items: flex-start;">
+    <form method="post" style="flex: 1; margin-right: 20px;">
+<!--        <label for="sku_asin">sku_asin:(Main-Probiot-120_B0DBV1D83T)</label>-->
+<!--        <input type="text" id="sku_asin" name="sku_asin" required class="short-input">-->
+
+        <label for="sku">sku:</label>
+        <input type="text" id="sku" name="sku" required class="short-input">
+
+        <label for="asin">asin:</label>
+        <input type="text" id="asin" name="asin" required class="short-input">
+
+
+
+        <label for="db_table">Выберите db_table</label>
+        <select id="db_table" name="db_table" required class="short-select">
+            <option value="cosmetics_directory_amazon">cosmetics_directory_amazon</option>
+            <option value="pets_directory_amazon">pets_directory_amazon</option>
+            <option value="supplements_directory_amazon">supplements_directory_amazon</option>
+        </select>
+
+
+
+
+        <div class="button-container">
+            <button type="submit">Отправить</button>
+        </div>
+    </form>
+
+</div>
+
+
+{% endblock %}

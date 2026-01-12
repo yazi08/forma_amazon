@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="static/logo.avif" alt="Логотип">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Меню</a></li>
+                <li><a href="/pet">Pet</a></li>
+                <li><a href="/supplements">Supplements</a></li>
+                <li><a href="/cosmetics">Cosmetics</a></li>
+                <li><a href="/requests">Запрос</a></li>
+                <li><a href="/delete_table">Удалить</a></li>
+                <li><a href="/rebate">Rebaid</a></li>
+                <li><a href="/login">Авторизация</a></li>
+
+<!--                <li>-->
+<!--                    <button class="accordion"><a>Категории</a></button>-->
+<!--                    <div class="panel">-->
+
+<!--                            <ul><li><a href="pet.html">Pet</a></li></ul>-->
+<!--                            <ul><li><a href="/requests">Запрос</a></li></ul>-->
+
+<!--                    </div>-->
+<!--                </li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        {% block video %} {% endblock %}
+        {% block content %} {% endblock %}
+        {% block Pet %}{% endblock %}
+        {% block Create_product %}{% endblock %}
+        <!-- Основное содержимое страницы -->
+    </main>
+   <script>
+        // JavaScript для аккордеона
+        document.querySelectorAll('.accordion').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+                const panel = button.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

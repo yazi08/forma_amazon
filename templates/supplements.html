@@ -1,0 +1,177 @@
+{% extends "index.html" %}
+
+
+
+{% block Pet %}
+<h1>Форма Supplements</h1>
+<div style="display: flex; align-items: flex-start;">
+    <form method="post" style="flex: 1; margin-right: 20px;">
+<!--        <label for="sku_asin">sku_asin:(Main-Probiot-120_B0DBV1D83T)</label>-->
+<!--        <input type="text" id="sku_asin" name="sku_asin" required class="short-input">-->
+
+        <label for="sku">sku:</label>
+        <input type="text" id="sku" name="sku" required class="short-input">
+
+        <label for="asin">asin:</label>
+        <input type="text" id="asin" name="asin" required class="short-input">
+
+        <div class="datetime-container">
+            <label for="open_date">Выберите open_date</label>
+            <input type="datetime-local" id="open_date" name="datetime_picker" required>
+        </div>
+
+        <label for="product">Выберите product</label>
+        <select id="product" name="product" required class="short-select">
+            {% for i in dict_items.products_list %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+
+        <label for="flavor">Выберите flavor</label>
+        <select id="flavor" name="flavor" required class="short-select">
+            {% for i in dict_items.flavor_list %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="thing">Выберите thing</label>
+        <select id="thing" name="thing" required class="short-select">
+            {% for i in dict_items.things_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="serving_size">Выберите serving_size</label>
+        <select id="serving_size" name="serving_size" required class="short-select">
+            {% for i in dict_items.serving_size_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+                <label for="form_thing">Выберите form_thing</label>
+        <select id="form_thing" name="form_thing" required class="short-select">
+            {% for i in dict_items.form_thing_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="type_thing">Выберите type_thing</label>
+        <select id="type_thing" name="type_thing" required class="short-select">
+            {% for i in dict_items.type_thing_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="type_package">Выберите type_package</label>
+        <select id="type_package" name="type_package" required class="short-select">
+            {% for i in dict_items.type_package_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="pack_q_ty">Выберите pack_q_ty</label>
+        <select id="pack_q_ty" name="pack_q_ty" required class="short-select">
+            {% for i in dict_items.pack_q_ty_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="net_weight_g">Выберите net_weight_g</label>
+        <select id="net_weight_g" name="net_weight_g" required class="short-select">
+            {% for i in dict_items.net_weight_g_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+
+
+        <label for="net_weight_oz">Выберите net_weight_oz</label>
+        <select id="net_weight_oz" name="net_weight_oz" required class="short-select">
+            {% for i in dict_items.net_weight_oz_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+
+
+        <label for="vine">vine:(1 - является вайном, 0 - нет)</label>
+        <input type="text" id="vine" name="vine" required class="short-input">
+
+        <label for="stack">stack:(1 - является стаком, 0 - нет)</label>
+        <input type="text" id="stack" name="stack" required class="short-input">
+
+
+
+        <label for="sugar_free">sugar_free:(1 - сахар есть, 0 - нет)</label>
+        <input type="text" id="sugar_free" name="sugar_free" required class="short-input">
+
+        <label for="vegan">vegan:(1 - веганский, 0 - нет)</label>
+        <input type="text" id="vegan" name="vegan" required class="short-input">
+
+
+        <label for="brand">Выберите brand</label>
+        <select id="brand" name="brand" required class="short-select">
+            {% for i in dict_items.brands_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+
+        <label for="name_marketplace">Выберите name_marketplace</label>
+        <select id="name_marketplace" name="name_marketplace" required class="short-select">
+            {% for i in dict_items.marketplace_names_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="name_ysell">Выберите name_ysell</label>
+        <select id="name_ysell" name="name_ysell" required class="short-select">
+            {% for i in dict_items.ysell_names_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+
+
+        <label for="channel">Выберите channel</label>
+        <select id="channel" name="channel" required class="short-select">
+            <option value="US">US</option>
+            <option value="CA">CA</option>
+
+        </select>
+
+
+<!--        <label for="tableSelect">Выберите таблицу:</label>-->
+<!--        <select id="tableSelect" name="tableSelect" required class="short-select">-->
+<!--            <option value="" disabled selected>&#45;&#45; Выберите таблицу &#45;&#45;</option>-->
+<!--            <option value="chewia_items_archive">Chewia items</option>-->
+<!--            <option value="table2">Таблица 2</option>-->
+<!--            <option value="table3">Таблица 3</option>-->
+<!--        </select>-->
+
+        <div class="button-container">
+            <button type="submit">Отправить</button>
+        </div>
+    </form>
+
+
+
+
+<!--    <img src="static/dog_1.jfif" alt="Описание картинки" style="max-width: 300px; height: auto; padding-right: 20px;">-->
+</div>
+
+
+
+{% endblock %}

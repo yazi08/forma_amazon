@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+
+{% block Pet %}
+<h1>Авторизация</h1>
+
+{% for cat,msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
+<div style="display: flex; align-items: flex-start;">
+    <form method="post" style="flex: 1; margin-right: 20px;">
+
+
+        <label for="email">Почта:</label>
+        <input type="text" id="email" name="email" required class="short-input">
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required class="short-input">
+
+<!--        <p><input type="checkbox" id="remainme" name="remainme" />Запомни меня-->
+
+
+
+
+        <div class="button-container">
+            <button type="submit">Отправить</button>
+        </div>
+
+
+    </form>
+
+
+
+
+<!--    <img src="static/dog_1.jfif" alt="Описание картинки" style="max-width: 300px; height: auto; padding-right: 20px;">-->
+</div>
+{% endblock %}

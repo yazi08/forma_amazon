@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+
+
+{% block Create_product %}
+<h1>Форма создания product</h1>
+
+<form method="post">
+        <label for="product">product(пример: Green lawn)</label>
+        <input type="text" id="product" name="product" required class="short-input">
+
+
+            <label for="name_market_place">Name Marketplace</label>
+            <select id="name_market_place" name="name_market_place" required class="short-select">
+            <option value="GENOLA LTD">GENOLA LTD</option>
+            <option value="VETRIKA LTD">VETRIKA LTD</option>
+            <option value="SELLUXE LTD">SELLUXE LTD</option>
+            <option value="PETS SUPPLEMENT">PETS SUPPLEMENT</option>
+
+            </select>
+
+
+
+            <label for="brand">Brand</label>
+            <select id="brand" name="brand" required class="short-select">
+            <option value="Artullano">Artullano</option>
+            <option value="Chewia">Chewia</option>
+            <option value="Vetrica">Vetrica</option>
+            <option value="Kinpurr">Kinpurr</option>
+
+            </select>
+
+
+
+            <label for="name_ysell">Name Ysell</label>
+            <select id="name_ysell" name="name_ysell" required class="short-select">
+            <option value="Chewia">Chewia</option>
+            <option value="Vetrika">Vetrika</option>
+            <option value="SELLUXE LTD">SELLUXE LTD</option>
+            <option value="AMD-32">AMD-32</option>
+
+            </select>
+
+
+         <div class="button-container">
+            <button type="submit">Отправить</button>
+        </div>
+
+
+
+
+
+
+    </form>
+
+    {% if dict_items %}
+    {{ dict_items.product }}
+    {% endif %}
+
+{% endblock %}

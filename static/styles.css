@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif; /* Установите шрифт для всего тела */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    font-size: 16px; /* Установите размер шрифта для всего тела */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a90e2;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+nav a, .accordion {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: Arial, sans-serif; /* Установите шрифт для ссылок и кнопок */
+    font-size: 16px; /* Установите одинаковый размер шрифта для ссылок и кнопок */
+}
+
+nav a:hover, .accordion:hover {
+    text-decoration: underline;
+}
+
+.panel {
+    display: none;
+    overflow: hidden;
+    background-color: #4a90e2;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif; /* Установите шрифт для панели */
+    font-size: 16px; /* Установите одинаковый размер шрифта для панели */
+}
+
+.accordion.active + .panel {
+    display: block; /* Показывает панель, когда аккордеон активен */
+    max-height: 200px; /* Устанавливает максимальную высоту для анимации */
+}
+
+
+label {
+    display: block;
+    margin: 10px 0 5px 15px;
+}
+
+.short-input, .short-select {
+    width: 50%; /* Ширина полей */
+    padding: 8px;
+    margin-bottom: 15px; /* Отступ между полями */
+    margin-left: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.form-group {
+        margin-bottom: 15px; /* Отступ между элементами формы */
+        padding-left: 15px; /* Отступ слева для всех элементов */
+    }
+
+    .short-input,
+    .short-select {
+        width: 50%; /* Ширина полей */
+        padding: 8px; /* Отступ внутри полей */
+        box-sizing: border-box; /* Чтобы отступы не влияли на ширину */
+    }
+
+
+
+
+.datetime-container {
+        margin-bottom: 15px; /* Отступ между элементами формы */
+        padding-left: 15px; /* Отступ слева для всех элементов */}
+
+
+
+h1 {padding-left: 15px;}
+
+
+
+table {
+            width: 30%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            margin-right: 15px;
+        }
+th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+th {
+            background-color: #f2f2f2;
+        }
+
+
+
+.video-container {
+    text-align: center; /* Центрирует содержимое по горизонтали */
+    margin-top: 50px;
+}
+
+video {
+    max-width: 100%;  /* Делает видео адаптивным */
+    height: auto;     /* Сохраняет соотношение сторон */
+}
+
+
+.flash {padding: 10px;}
+.flash.success {
+         border: 1px solid #21DB56;
+         background:#AEFFC5;}
+
+.flash.error {
+         border: 1px solid #FF4343;
+         background:FF9C9C;}

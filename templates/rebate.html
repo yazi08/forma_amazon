@@ -1,0 +1,97 @@
+{% extends "index.html" %}
+
+
+{% block Pet %}
+<h1>Форма Rebaid</h1>
+
+
+
+<div style="display: flex; align-items: flex-start;">
+    <form method="post" style="flex: 1; margin-right: 20px;">
+<!--        <label for="sku_asin">sku_asin:(Main-Probiot-120_B0DBV1D83T)</label>-->
+<!--        <input type="text" id="sku_asin" name="sku_asin" required class="short-input">-->
+
+        <label for="sku">sku:</label>
+        <input type="text" id="sku" name="sku" required class="short-input">
+
+        <label for="asin">asin:</label>
+        <input type="text" id="asin" name="asin" required class="short-input">
+
+        <div class="datetime-container">
+            <label for="open_date">Выберите open_date</label>
+            <input type="datetime-local" id="open_date" name="datetime_picker" required>
+        </div>
+
+
+
+
+
+        <label for="rebate_q">Введите количество Rebaid</label>
+        <input type="text" id="rebate_q" name="rebate_q" required class="short-input">
+
+        <label for="rebate_vallue">Введите $ Rebaid</label>
+        <input type="text" id="rebate_vallue" name="rebate_vallue" required class="short-input">
+
+
+
+        <label for="type">Выберите тип</label>
+        <select id="type" name="type" required class="short-select">
+            {% for i in dict_items.type %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+
+
+        <label for="brand">Выберите brand</label>
+        <select id="brand" name="brand" required class="short-select">
+            {% for i in dict_items.brands_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+
+        <div class="button-container">
+            <button type="submit">Отправить</button>
+        </div>
+    </form>
+
+
+
+
+<!--    <img src="static/dog_1.jfif" alt="Описание картинки" style="max-width: 300px; height: auto; padding-right: 20px;">-->
+</div>
+
+
+   {% if dict_items.list_items %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Индекс</th>
+                    <th>Значение</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in dict_items.list_items.items() %}
+                    <tr>
+                        <td>{{ index }}</td>
+                        <td>{{ row[0] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
