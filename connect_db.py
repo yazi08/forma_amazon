@@ -6,8 +6,8 @@ from sqlalchemy import create_engine
 
 db ={"dbname" : "postgres",
 "user" : "postgres",
-"password" : "lPmitR2Ah#yJ2j%*",
-"host" : "10.197.0.221",
+"password" : "111111111",
+"host" : "10.1111.0.1111",
 "port" : "5432"
 }
 
