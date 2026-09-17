@@ -49,7 +49,7 @@ def request_info():
                         where asin='{asin}' and sku = '{sku}'"""
 
         try:
-            df=get_data(sql,'az_reports')
+            df=get_data(sql,'amazon_dwh')
 
 
             list_items = df.to_dict()
@@ -127,7 +127,7 @@ def form_pet():
         df = pd.DataFrame(df_dict)
         df['url'] = 'https://www.amazon.com/dp/'+ df['asin']
         print (df)
-        to_db(df,table_name,'append','az_reports')
+        to_db(df,table_name,'append','amazon_dwh')
 
         # time.sleep(5)
         # sql =f"""SELECT *
@@ -225,7 +225,7 @@ def form_supplements():
         df = pd.DataFrame(df_dict)
         df['url'] = 'https://www.amazon.com/dp/' + df['asin']
         print(df)
-        to_db(df, table_name, 'append', 'az_reports')
+        to_db(df, table_name, 'append', 'amazon_dwh')
 
 
 
@@ -284,7 +284,7 @@ def form_cosmetics():
         df = pd.DataFrame(df_dict)
         df['url'] = 'https://www.amazon.com/dp/' + df['asin']
         print(df)
-        to_db(df, table_name, 'append', 'az_reports')
+        to_db(df, table_name, 'append', 'amazon_dwh')
 
 
 
@@ -309,7 +309,7 @@ def delete_table():
 
 
         sql_string = f"""delete from public.{db_table} where asin='{asin}' and sku='{sku}'"""
-        del_db(sql_string,'az_reports')
+        del_db(sql_string,'amazon_dwh')
 
 
 

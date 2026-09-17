@@ -4,12 +4,14 @@ from sqlalchemy import create_engine
 #from parameter import date_start,date_end,date_32
 
 
-db ={"dbname" : "postgres",
-"user" : "postgres",
-"password" : "111111111",
-"host" : "10.1111.0.1111",
-"port" : "5432"
+db = {
+    "dbname":   "amazon_dwh",
+    "user":     "form_writer",
+    "password": "~#F3ud8r3gwdaswh",
+    "host":     "127.0.0.1",
+    "port":     "5433",
 }
+
 
 
 
