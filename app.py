@@ -7,6 +7,7 @@ from parametr import products_list,brands_list,marketplace_names_list,ysell_name
 from parametr_cosmetics import *
 from parametr_supplements import *
 from parametr_rebate import brands_list_rebate,type_name
+from parametr_other import products_list_other,category_list_other,brands_list_other,marketplace_names_list_other,ysell_names_list_other
 from werkzeug.security import generate_password_hash, check_password_hash
 from work_test.db_connect import insert_data,get_user_email
 from flask_login import LoginManager,login_user,login_required,logout_user
@@ -26,6 +27,13 @@ def load_user(user_id):
     return user_login.fromDB(user_id)
 
 
+def form_value(name):
+    """Значение поля формы без начальных и конечных пробелов."""
+    value = request.form.get(name)
+    if value is None:
+        return None
+    return value.strip()
+
 @app.route('/')
 @login_required
 def home():
@@ -38,10 +46,10 @@ def request_info():
 
     if request.method =='POST':
 
-        asin = request.form.get("asin")
+        asin = form_value("asin")
 
-        sku = request.form.get("sku")
-        table = request.form.get("tableSelect")
+        sku = form_value("sku")
+        table = form_value("tableSelect")
         print (asin,sku,table)
 
         sql =f"""SELECT *
@@ -84,29 +92,29 @@ def form_pet():
 
 
         #sku_asin =request.form.get('sku_asin')
-        sku = request.form.get('sku')
-        asin=request.form.get('asin')
-        open_date_full=request.form.get('datetime_picker')
+        sku = form_value('sku')
+        asin=form_value('asin')
+        open_date_full=form_value('datetime_picker')
         open_date = open_date_full[:10]
-        product=request.form.get('product')
-        flavor=request.form.get('flavor')
-        thing=request.form.get('thing')
-        type_thing = request.form.get('type_thing')
-        net_weight_g=request.form.get('net_weight_g')
-        net_weight_oz = request.form.get('net_weight_oz')
-        vine=request.form.get('vine')
-        stack=request.form.get('stack')
-        pets=request.form.get('pets')
-        brand = request.form.get('brand')
-        name_marketplace = request.form.get('name_marketplace')
-        name_ysell = request.form.get('name_ysell')
-        channel = request.form.get('channel')
+        product=form_value('product')
+        flavor=form_value('flavor')
+        thing=form_value('thing')
+        type_thing = form_value('type_thing')
+        net_weight_g=form_value('net_weight_g')
+        net_weight_oz = form_value('net_weight_oz')
+        vine=form_value('vine')
+        stack=form_value('stack')
+        pets=form_value('pets')
+        brand = form_value('brand')
+        name_marketplace = form_value('name_marketplace')
+        name_ysell = form_value('name_ysell')
+        channel = form_value('channel')
 
 
         print (open_date,type(open_date))
-        df_dict = {'sku_asin':[sku.strip()+"_"+asin.strip()],
-                   'sku': [sku.strip()],
-                   'asin':[asin.strip()],
+        df_dict = {'sku_asin':[sku+"_"+asin],
+                   'sku': [sku],
+                   'asin':[asin],
                    'open_date':[open_date],
                    'open_date_full': [pd.to_datetime(open_date_full).strftime('%Y-%m-%d %H:%M')],
                    'product':[product],
@@ -172,34 +180,34 @@ def form_supplements():
 
     if request.method == 'POST':
         # sku_asin =request.form.get('sku_asin')
-        sku = request.form.get('sku')
-        asin = request.form.get('asin')
-        open_date_full = request.form.get('datetime_picker')
+        sku = form_value('sku')
+        asin = form_value('asin')
+        open_date_full = form_value('datetime_picker')
         open_date = open_date_full[:10]
-        product = request.form.get('product')
-        flavor = request.form.get('flavor')
-        thing = request.form.get('thing')
-        serving_size = request.form.get('serving_size')
-        form_thing=request.form.get('form_thing')
-        type_thing = request.form.get('type_thing')
-        type_package = request.form.get('type_package')
-        pack_q_ty=request.form.get('pack_q_ty')
-        net_weight_g = request.form.get('net_weight_g')
-        net_weight_oz = request.form.get('net_weight_oz')
-        vine = request.form.get('vine')
-        stack= request.form.get('stack')
-        sugar_free=request.form.get('sugar_free')
-        vegan = request.form.get('vegan')
+        product = form_value('product')
+        flavor = form_value('flavor')
+        thing = form_value('thing')
+        serving_size = form_value('serving_size')
+        form_thing=form_value('form_thing')
+        type_thing = form_value('type_thing')
+        type_package = form_value('type_package')
+        pack_q_ty=form_value('pack_q_ty')
+        net_weight_g = form_value('net_weight_g')
+        net_weight_oz = form_value('net_weight_oz')
+        vine = form_value('vine')
+        stack= form_value('stack')
+        sugar_free=form_value('sugar_free')
+        vegan = form_value('vegan')
 
-        brand = request.form.get('brand')
-        name_marketplace = request.form.get('name_marketplace')
-        name_ysell = request.form.get('name_ysell')
-        channel = request.form.get('channel')
+        brand = form_value('brand')
+        name_marketplace = form_value('name_marketplace')
+        name_ysell = form_value('name_ysell')
+        channel = form_value('channel')
 
         print(open_date, type(open_date))
-        df_dict = {'sku_asin': [sku.strip() + "_" + asin.strip()],
-                   'sku': [sku.strip()],
-                   'asin': [asin.strip()],
+        df_dict = {'sku_asin': [sku + "_" + asin],
+                   'sku': [sku],
+                   'asin': [asin],
                    'open_date': [open_date],
                    'open_date_full': [pd.to_datetime(open_date_full).strftime('%Y-%m-%d %H:%M')],
                    'product': [product],
@@ -248,25 +256,25 @@ def form_cosmetics():
 
     if request.method == 'POST':
         # sku_asin =request.form.get('sku_asin')
-        sku = request.form.get('sku')
-        asin = request.form.get('asin')
-        open_date_full = request.form.get('datetime_picker')
+        sku = form_value('sku')
+        asin = form_value('asin')
+        open_date_full = form_value('datetime_picker')
         open_date = open_date_full[:10]
-        product = request.form.get('product')
-        thing = request.form.get('thing')
-        type_thing = request.form.get('type_thing')
-        net_weight_g = request.form.get('net_weight_g')
-        net_weight_oz = request.form.get('net_weight_oz')
-        vine = request.form.get('vine')
-        brand = request.form.get('brand')
-        name_marketplace = request.form.get('name_marketplace')
-        name_ysell = request.form.get('name_ysell')
-        channel = request.form.get('channel')
+        product = form_value('product')
+        thing = form_value('thing')
+        type_thing = form_value('type_thing')
+        net_weight_g = form_value('net_weight_g')
+        net_weight_oz = form_value('net_weight_oz')
+        vine = form_value('vine')
+        brand = form_value('brand')
+        name_marketplace = form_value('name_marketplace')
+        name_ysell = form_value('name_ysell')
+        channel = form_value('channel')
 
         print(open_date, type(open_date))
-        df_dict = {'sku_asin': [sku.strip() + "_" + asin.strip()],
-                   'sku': [sku.strip()],
-                   'asin': [asin.strip()],
+        df_dict = {'sku_asin': [sku + "_" + asin],
+                   'sku': [sku],
+                   'asin': [asin],
                    'open_date': [open_date],
                    'open_date_full': [pd.to_datetime(open_date_full).strftime('%Y-%m-%d %H:%M')],
                    'product': [product],
@@ -292,15 +300,65 @@ def form_cosmetics():
 
 
 
+@app.route('/other', methods=['GET','POST'])
+@login_required
+def form_other():
+    dict_items = {'products_list': products_list_other,
+                  'category_list': category_list_other,
+                  'brands_list': brands_list_other,
+                  'marketplace_names_list': marketplace_names_list_other,
+                  'ysell_names_list': ysell_names_list_other}
+
+    if request.method == 'POST':
+        sku = form_value('sku')
+        asin = form_value('asin')
+        open_date_full = form_value('datetime_picker')
+        open_date = open_date_full[:10]
+        product = form_value('product')
+        vine = form_value('vine')
+        stack = form_value('stack')
+        category = form_value('category')
+        brand = form_value('brand')
+        name_marketplace = form_value('name_marketplace')
+        name_ysell = form_value('name_ysell')
+        channel = form_value('channel')
+
+        print(open_date, type(open_date))
+        df_dict = {'sku_asin': [sku + "_" + asin],
+                   'sku': [sku],
+                   'asin': [asin],
+                   'open_date': [open_date],
+                   'open_date_full': [pd.to_datetime(open_date_full).strftime('%Y-%m-%d %H:%M')],
+                   'product': [product],
+                   'vine': [vine],
+                   'stack': [stack],
+                   'category': [category],
+                   'brand': [brand],
+                   'name_marketplace': [name_marketplace],
+                   'name_ysell': [name_ysell],
+                   'channel': [channel]}
+
+        table_name = 'other_directory_amazon'
+        df = pd.DataFrame(df_dict)
+        df['url'] = 'https://www.amazon.com/dp/' + df['asin']
+        print(df)
+        to_db(df, table_name, 'append', 'amazon_dwh')
+
+
+
+    return render_template('other.html',dict_items=dict_items)
+
+
+
 
 @app.route('/delete_table', methods = ['GET','POST'])
 @login_required
 def delete_table():
     dict_items = {}
     if request.method =='POST':
-        asin = request.form.get('asin')
-        sku = request.form.get('sku')
-        db_table = request.form.get('db_table')
+        asin = form_value('asin')
+        sku = form_value('sku')
+        db_table = form_value('db_table')
         print (asin,sku,db_table)
 
         dict_items = {'asin': [asin],
@@ -325,10 +383,10 @@ def create_name_product():
     dict_items ={}
 
     if request.method =='POST':
-        product = request.form.get('product')
-        name_market_place = request.form.get('name_market_place')
-        brand = request.form.get('brand')
-        name_ysell = request.form.get('name_ysell')
+        product = form_value('product')
+        name_market_place = form_value('name_market_place')
+        brand = form_value('brand')
+        name_ysell = form_value('name_ysell')
 
 
 
@@ -358,26 +416,26 @@ def form_rebate():
                   'brands_list': brands_list_rebate,'type':type_name,
                    }
     if request.method == 'POST':
-        sku = request.form.get('sku')
-        asin = request.form.get('asin')
-        open_date_full = request.form.get('datetime_picker')
+        sku = form_value('sku')
+        asin = form_value('asin')
+        open_date_full = form_value('datetime_picker')
         open_date = open_date_full[:10]
-        rebate_q = request.form.get('rebate_q')
-        rebate_vallue = request.form.get('rebate_vallue')
-        brand = request.form.get('brand')
-        type_rebaid = request.form.get('type')
+        rebate_q = form_value('rebate_q')
+        rebate_vallue = form_value('rebate_vallue')
+        brand = form_value('brand')
+        type_rebaid = form_value('type')
 
 
         print(open_date, type(open_date))
         df_dict = {
-                   'sku': [sku.strip()],
-                   'asin': [asin.strip()],
+                   'sku': [sku],
+                   'asin': [asin],
                    'open_date': [open_date],
                    'open_date_full': [pd.to_datetime(open_date_full).strftime('%Y-%m-%d %H:%M')],
-                   'rebate_q': [int(rebate_q.strip())],
-                   'rebate_vallue': [float(rebate_vallue.strip().replace(',','.'))],
-                    'type':[type_rebaid.strip()],
-                    'brand': [brand.strip()]}
+                   'rebate_q': [int(rebate_q)],
+                   'rebate_vallue': [float(rebate_vallue.replace(',','.'))],
+                    'type':[type_rebaid],
+                    'brand': [brand]}
 
         table_name = 'rebate_directory_amazon'
         df = pd.DataFrame(df_dict)

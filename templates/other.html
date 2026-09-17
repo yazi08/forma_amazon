@@ -1,0 +1,86 @@
+{% extends "index.html" %}
+
+
+{% block Pet %}
+<h1>Форма Other</h1>
+
+<div style="display: flex; align-items: flex-start;">
+    <form method="post" style="flex: 1; margin-right: 20px;">
+
+        <label for="sku">sku:</label>
+        <input type="text" id="sku" name="sku" required class="short-input">
+
+        <label for="asin">asin:</label>
+        <input type="text" id="asin" name="asin" required class="short-input">
+
+        <div class="datetime-container">
+            <label for="open_date">Выберите open_date</label>
+            <input type="datetime-local" id="open_date" name="datetime_picker" required>
+        </div>
+
+        <label for="product">Выберите product</label>
+        <select id="product" name="product" required class="short-select">
+            {% for i in dict_items.products_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="vine">vine:(1 - является вайном, 0 - нет)</label>
+        <input type="text" id="vine" name="vine" required class="short-input">
+
+        <label for="stack">stack:(1 - является стаком, 0 - нет)</label>
+        <input type="text" id="stack" name="stack" required class="short-input">
+
+
+        <label for="category">Выберите категорию</label>
+        <select id="category" name="category" required class="short-select">
+            {% for i in dict_items.category_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="brand">Выберите brand</label>
+        <select id="brand" name="brand" required class="short-select">
+            {% for i in dict_items.brands_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="name_marketplace">Выберите name_marketplace</label>
+        <select id="name_marketplace" name="name_marketplace" required class="short-select">
+            {% for i in dict_items.marketplace_names_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="name_ysell">Выберите name_ysell</label>
+        <select id="name_ysell" name="name_ysell" required class="short-select">
+            {% for i in dict_items.ysell_names_list %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+
+        <label for="channel">Выберите channel</label>
+        <select id="channel" name="channel" required class="short-select">
+            <option value="US">US</option>
+            <option value="CA">CA</option>
+            <option value="UK">UK</option>
+            <option value="DE">DE</option>
+
+        </select>
+
+
+        <div class="button-container">
+            <button type="submit">Отправить</button>
+        </div>
+    </form>
+
+</div>
+
+
+{% endblock %}
