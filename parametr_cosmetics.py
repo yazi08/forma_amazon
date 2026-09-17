@@ -11,10 +11,10 @@ thing_list_cosmetic = sorted([0,50,60])
 type_thing_cosmetic = sorted(["Cream","Patch"])
 
 
-net_weight_g_list_cosmetic=sorted([121,0,167,118,250])
+net_weight_g_list_cosmetic=sorted([121,0,167,118,250,120,184])
 
 
-net_weight_oz_list_cosmetic=sorted([0,4.1,8.82,5.9,4])
+net_weight_oz_list_cosmetic=sorted([0,4.1,8.82,5.9,4,4.23,6.5])
 
 
 brands_list_cosmetic = sorted([
@@ -30,7 +30,8 @@ marketplace_names_list_cosmetic = sorted([
     "MERICAL LTD",
 "Nutrim Shop",
 "Xplane",
-"LEVANTO STORE"
+"LEVANTO STORE",
+"Supplements Shopp"
 ])
 
 
@@ -39,7 +40,8 @@ ysell_names_list_cosmetic = sorted([
 "amd-03",
 "amd-20",
 "amd-16",
-"MERICAL"
+"MERICAL",
+"US_29"
 ])
 
 

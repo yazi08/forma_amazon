@@ -17,7 +17,7 @@ products_list = sorted([
     "Probiotic",
     "L-lysine",
     "Hemp oil 2 pack",
-    'Omega','Ear wipes','Dental finger wipes','Bully sticks','Anal Gland'
+    'Omega','Ear wipes','Dental finger wipes','Bully sticks','Anal Gland','Mushroom'
 ])
 
 flavor_list = sorted(["Duck",
